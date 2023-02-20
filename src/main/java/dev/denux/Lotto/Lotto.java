@@ -60,7 +60,7 @@ public class Lotto {
     }
 
     private Lotto(int[] guesses) {
-        Sort.bubbleSort(guesses);
+        IntSorter.sort(guesses);
         this.guesses = guesses;
         this.winNumbers = generateWinNumbers();
         checkForDuplications();
@@ -112,7 +112,7 @@ public class Lotto {
             winNumbers[i] =winNumber;
         }
         //Finally, sorting the array for readability.
-        Sort.dualPivotQuicksort(winNumbers);
+        IntSorter.sort(winNumbers);
         return winNumbers;
     }
 }
