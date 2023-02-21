@@ -1,6 +1,5 @@
 package dev.denux.Lotto;
 
-import com.sun.tools.javac.util.Pair;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -36,20 +35,20 @@ public class SortTest {
     }
 
     private void performTest(Consumer<int[]> fn, int length) {
-        Pair<int[], int[]> pair = generateArrayPair(length);
+        int[][] pair = generateArrayPair(length);
         long startTime = System.nanoTime();
-        fn.accept(pair.fst);
+        fn.accept(pair[0]);
         long endTime = System.nanoTime();
-        Assertions.assertArrayEquals(pair.snd, pair.fst);
+        Assertions.assertArrayEquals(pair[1], pair[0]);
         System.out.println("Time in nano-seconds: " + (endTime - startTime));
-        System.out.println("Time in milli-seconds: " + (endTime - startTime) / 1000000);
+        System.out.println("Time in milli-seconds: " + (endTime - startTime) / 1_000_000);
     }
 
-    private Pair<int[], int[]> generateArrayPair(int length) {
+    private int[][] generateArrayPair(int length) {
         int[] array = generateIntArray(length);
         int[] sortedArray = Arrays.copyOf(array, array.length);
         Arrays.sort(sortedArray);
-        return new Pair<>(array, sortedArray);
+        return new int[][]{array, sortedArray};
     }
 
     private int[] generateIntArray(int length) {
