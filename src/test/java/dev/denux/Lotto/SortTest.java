@@ -17,6 +17,8 @@ public class SortTest {
         bubbleSortTest(length);
         System.out.println("\nSelection Sort:");
         selectionSortTest(length);
+        System.out.println("\nInsertion Sort:");
+        insertionSortTest(length);
         System.out.println("\nDual Pivot Quick Sort:");
         dualPivotQuickSortTest(length);
         System.out.println("\n");
@@ -32,6 +34,10 @@ public class SortTest {
 
     private void selectionSortTest(int length) {
         performTest(IntSorter::selectionSort, length);
+    }
+
+    private void insertionSortTest(int length) {
+        performTest(IntSorter::insertionSort, length);
     }
 
     private void performTest(Consumer<int[]> fn, int length) {

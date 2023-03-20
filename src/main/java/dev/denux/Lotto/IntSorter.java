@@ -42,7 +42,26 @@ public class IntSorter {
                 }
             }
             //swap the current element with the element at the minimum index
-            swap(array, i, minIndex);
+            if (minIndex != i) swap(array, i, minIndex);
+        }
+    }
+
+    public static void insertionSort(int[] array) {
+        //for loop that loops through the array
+        for (int i = 1; i < array.length; i++) {
+            //set the current element to the temporary variable
+            int temp = array[i];
+            //set the current index to the previous index
+            int j = i - 1;
+            //while loop that loops while the current index is greater than or equal to 0 and the element at the current index is greater than the temporary variable
+            while (j >= 0 && array[j] > temp) {
+                //set the element at the current index + 1 to the element at the current index
+                array[j + 1] = array[j];
+                //decrement the current index
+                j--;
+            }
+            //set the element at the current index + 1 to the temporary variable
+            array[j + 1] = temp;
         }
     }
 
